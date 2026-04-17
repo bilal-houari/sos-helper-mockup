@@ -20,6 +20,7 @@ const Navbar: React.FC = () => {
           
           {!isAuthPage && (
             <div className={styles.navLinks}>
+              <Link to="/tasks" className={styles.link}>Browse Tasks</Link>
               <a href="#features" className={styles.link}>Features</a>
               <a href="#gallery" className={styles.link}>Services</a>
               <a href="#how-it-works" className={styles.link}>Benefits</a>
