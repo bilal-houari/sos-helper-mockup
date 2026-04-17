@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { MapPin, Clock } from 'lucide-react';
 import type { Task } from '../../data/mockTasks';
 import Button from '../Button/Button';
@@ -9,8 +10,14 @@ interface TaskCardProps {
 }
 
 const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
+  const navigate = useNavigate();
+
+  const handleViewTask = () => {
+    navigate(`/tasks/${task.id}`);
+  };
+
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={handleViewTask}>
       <div className={styles.header}>
         <div className={styles.titleArea}>
           <span className={`${styles.badge} ${task.category === 'Qualified' ? styles.qualified : styles.general}`}>
@@ -37,7 +44,17 @@ const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
           </div>
         </div>
         
-        <Button variant="outline" size="sm" className={styles.viewBtn}>View Task</Button>
+        <Button 
+          variant="outline" 
+          size="sm" 
+          className={styles.viewBtn}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleViewTask();
+          }}
+        >
+          View Task
+        </Button>
       </div>
     </div>
   );
