@@ -149,7 +149,7 @@ const TaskDetailPage: React.FC = () => {
             </div>
 
             <div className={styles.profileCard}>
-              <div className={styles.profileHeader}>
+              <Link to={`/profile/${task.id}`} className={styles.profileHeader}>
                 <img 
                   src={`https://i.pravatar.cc/150?u=${task.id}`} 
                   alt="Requester" 
@@ -166,7 +166,7 @@ const TaskDetailPage: React.FC = () => {
                     <span style={{ marginLeft: '4px', color: 'var(--text-secondary)' }}>(24 reviews)</span>
                   </div>
                 </div>
-              </div>
+              </Link>
               
               <div className={styles.profileStats}>
                 <div className={styles.statItem}>

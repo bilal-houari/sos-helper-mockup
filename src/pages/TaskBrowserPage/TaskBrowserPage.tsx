@@ -1,14 +1,17 @@
 import React, { useState, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import FilterModule from '../../components/FilterModule/FilterModule';
 import TaskCard from '../../components/TaskCard/TaskCard';
 import Pagination from '../../components/Pagination/Pagination';
+import Button from '../../components/Button/Button';
 import { MOCK_TASKS } from '../../data/mockTasks';
-import { SearchX } from 'lucide-react';
+import { SearchX, Plus } from 'lucide-react';
 import styles from './TaskBrowserPage.module.css';
 
 const TaskBrowserPage: React.FC = () => {
+  const navigate = useNavigate();
   const [search, setSearch] = useState('');
   const [selectedCategories, setSelectedCategories] = useState<string[]>(['Qualified', 'General']);
   const [sortBy, setSortBy] = useState('newest');
@@ -51,6 +54,15 @@ const TaskBrowserPage: React.FC = () => {
       
       <main className={styles.content}>
         <aside className={styles.sidebar}>
+          <Button 
+            variant="primary" 
+            className={styles.postBtn}
+            onClick={() => navigate('/tasks/create')}
+          >
+            <Plus size={18} style={{ marginRight: '8px' }} />
+            Post a Task
+          </Button>
+
           <FilterModule 
             search={search}
             onSearchChange={setSearch}
