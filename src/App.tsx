@@ -6,6 +6,7 @@ import TaskBrowserPage from './pages/TaskBrowserPage/TaskBrowserPage';
 import TaskDetailPage from './pages/TaskDetailPage/TaskDetailPage';
 import PublicProfilePage from './pages/PublicProfilePage/PublicProfilePage';
 import CreateTaskPage from './pages/CreateTaskPage/CreateTaskPage';
+import SettingsPage from './pages/SettingsPage/SettingsPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/tasks/:id" element={<TaskDetailPage />} />
         <Route path="/profile/:id" element={<PublicProfilePage />} />
         <Route path="/tasks/create" element={<CreateTaskPage />} />
+        <Route path="/settings" element={<SettingsPage />} />
       </Routes>
     </Router>
   )

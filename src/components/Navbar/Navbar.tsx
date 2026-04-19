@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Shield } from 'lucide-react';
+import { Shield, Settings } from 'lucide-react';
 import Button from '../Button/Button';
 import styles from './Navbar.module.css';
 
@@ -29,6 +29,16 @@ const Navbar: React.FC = () => {
         </div>
 
         <div className={styles.actions}>
+          {!isAuthPage && (
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              onClick={() => navigate('/settings')}
+              style={{ padding: '0.5rem', marginRight: '0.5rem' }}
+            >
+              <Settings size={20} />
+            </Button>
+          )}
           {location.pathname !== '/login' && (
             <Button variant="ghost" onClick={() => navigate('/login')}>Login</Button>
           )}
