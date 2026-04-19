@@ -9,6 +9,7 @@ import CreateTaskPage from './pages/CreateTaskPage/CreateTaskPage';
 import SettingsPage from './pages/SettingsPage/SettingsPage';
 import ChatPage from './pages/ChatPage/ChatPage';
 import NotificationsPage from './pages/NotificationsPage/NotificationsPage';
+import DashboardPage from './pages/DashboardPage/DashboardPage';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/chat" element={<ChatPage />} />
         <Route path="/notifications" element={<NotificationsPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
       </Routes>
     </Router>
   )

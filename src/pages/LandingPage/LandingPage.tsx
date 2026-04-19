@@ -1,3 +1,5 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ShieldCheck, MapPin, Zap, CheckCircle2 } from 'lucide-react';
 import Button from '../../components/Button/Button';
 import Navbar from '../../components/Navbar/Navbar';
@@ -5,6 +7,8 @@ import Footer from '../../components/Footer/Footer';
 import styles from './LandingPage.module.css';
 
 const LandingPage: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.page}>
       <Navbar />
@@ -23,8 +27,8 @@ const LandingPage: React.FC = () => {
                 SOS Helper connects you with vetted locals ready to work.
               </p>
               <div className={styles.heroActions}>
-                <Button variant="primary" size="lg">Need Help? Post a Task</Button>
-                <Button variant="outline" size="lg" className={styles.outlineBtn}>Help Others & Earn</Button>
+                <Button variant="primary" size="lg" onClick={() => navigate('/tasks')}>Need Help? Browse Tasks</Button>
+                <Button variant="outline" size="lg" className={styles.outlineBtn} onClick={() => navigate('/dashboard')}>Your Dashboard</Button>
               </div>
             </div>
             <div className={styles.heroImageContainer}>
