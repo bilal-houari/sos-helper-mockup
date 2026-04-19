@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Shield, Settings, MessageSquare } from 'lucide-react';
+import { Shield, Settings, MessageSquare, Bell } from 'lucide-react';
 import Button from '../Button/Button';
 import styles from './Navbar.module.css';
 
@@ -31,6 +31,24 @@ const Navbar: React.FC = () => {
         <div className={styles.actions}>
           {!isAuthPage && (
             <>
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                onClick={() => navigate('/notifications')}
+                style={{ padding: '0.5rem', marginRight: '0.25rem', position: 'relative' }}
+              >
+                <Bell size={20} />
+                <span style={{
+                  position: 'absolute',
+                  top: '6px',
+                  right: '6px',
+                  width: '8px',
+                  height: '8px',
+                  backgroundColor: 'var(--primary-color)',
+                  borderRadius: '50%',
+                  border: '2px solid var(--surface-color)'
+                }} />
+              </Button>
               <Button 
                 variant="ghost" 
                 size="sm" 
